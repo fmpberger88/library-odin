@@ -26,34 +26,54 @@ library.push(book2);
 library.push(book3);
 
 // show booklist
-for (book in library) {
+for (let book in library) {
     console.log(library[book]);
-    document.querySelector("#booklist");
+    const booklist = document.querySelector("#booklist");
 
     // Card Element
-    card = document.createElement("div")
+    const card = document.createElement("div")
+    card.setAttribute("class", "card");
 
     // Book Elements
-    title = document.createElement("h2");
-    title.textContent = book.title;
+    const title = document.createElement("h2");
+    title.textContent = library[book].title;
+    title.setAttribute("class", "title");
 
-    author = document.createElement("strong");
-    author.textContent = book.author;
+    const author = document.createElement("strong");
+    author.textContent = library[book].author;
+    author.setAttribute("class", "author");
 
-    publisher = document.createElement("em");
-    publisher.textContent = book.publisher;
+    const publisher = document.createElement("p");
+    publisher.textContent = library[book].publisher;
+    publisher.setAttribute("class", "publisher");
 
-    releaseYear = document.createElement("p");
-    releaseYear.textContent = book.releaseYear;
+    const releaseYear = document.createElement("p");
+    releaseYear.textContent = library[book].releaseYear;
+    releaseYear.setAttribute("class", "releaseYear");
 
-    language = document.createElement("p");
-    language.textContent = book.language;
+    const language = document.createElement("p");
+    language.textContent = library[book].language;
+    language.setAttribute("class", "language");
 
-    pages = document.createElement("p");
-    pages.textContent = book.pages;
+    const pages = document.createElement("p");
+    pages.textContent = library[book].pages;
+    pages.setAttribute("class", "pages");
 
-    read = document.createElement("p");
-    read.textContent = book.read ? "No" : "Yes";
+    const read = document.createElement("p");
+    read.textContent = library[book].read ? "Yes" : "Not read yet";
+    read.setAttribute("class", "read");
+
+    // Append to card
+    card.appendChild(title);
+    card.appendChild(author);
+    card.appendChild(publisher);
+    card.appendChild(releaseYear);
+    card.appendChild(language);
+    card.appendChild(pages);
+    card.appendChild(read);
+
+    // append cards to booklist
+    booklist.appendChild(card);
 }
 
 
