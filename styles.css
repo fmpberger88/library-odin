@@ -20,7 +20,7 @@ h1 {
     margin: 50px;
 }
 
-button {
+#addBook {
     background-color: chartreuse;
     font-size: 1.25rem;
     width: 180px;
@@ -30,11 +30,11 @@ button {
     margin-bottom: 50px;
 }
 
-button:hover {
+#addBook:hover {
     transform: scale(1.1);
 }
 
-button:active {
+#addBook:active {
     transform: scale(0.95);
 }
 
@@ -55,39 +55,67 @@ button:active {
     height: 300px;
 }
 
-.card:hover {
-    transform: scale(1.1);
+
+.deleteButton {
+    align-self: flex-end;
+    font-size: 1.15rem;
+    margin-right: 10px;
+    margin-top: 5px;
+    background-color: white;
+    color: darkred;
+    border: 3px darkred solid;
+    border-radius: 50%; /* Ensure it's perfectly round */
+    padding: 3px;
+    font-weight: bold;
+    width: 30px; /* Example size */
+    height: 30px; /* Ensure it's the same as width for a circle */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer; /* Optional: Changes the cursor on hover */
+}
+
+
+.deleteButton:hover {
+    background-color: darkred;
+    color: black;
 }
 
 .title {
     align-self: center;
-    margin-top: 40px;
     font-size: 1.5rem;
+    margin-top: 30px;
 }
 
 .author {
     align-self: center;
-    margin-bottom: 40px;
+    margin-bottom: 50px;
 }
 
 .publisher {
     margin-left: 20px;
+    margin-top: 30px;
+    font-style: italic;
 }
 
 .releaseYear {
+    margin-left: 20px;
+    margin-bottom: 5px;
 
 }
 
 .language {
-
+    margin-left: 20px;
+    margin-bottom: 5px;
 }
 
 .pages {
-
+    margin-left: 20px;
+    margin-bottom: 5px;
 }
 
 .read {
-
+    margin-left: 20px;
 }
 
 footer {

@@ -1,6 +1,6 @@
 const library = [];
 
-function Book (title, author, publisher, releaseYear, language, pages, read = false) {
+function Book(title, author, publisher, releaseYear, language, pages, read = false) {
     this.title = title;
     this.author = author;
     this.publisher = publisher;
@@ -10,72 +10,86 @@ function Book (title, author, publisher, releaseYear, language, pages, read = fa
     this.read = read;
 }
 
-// add a book to library
+// Add a book to library
 const addBookToLibrary = (title, author, publisher, releaseYear, language, pages, read = false) => {
     const book = new Book(title, author, publisher, releaseYear, language, pages, read);
     library.push(book);
 }
 
-// example data
-book1 = new Book("The Hobbit", "J. J. R. Tokien", "George Allen & Unwin (UK)", 1937, "EN", 310);
-book2 = new Book("Lord Of The Rings", "J. J. R. Tolkien", "George Allen & Unwin (UK)", 1954, "EN", 1216, true);
-book3 = new Book("Lord Of The Rings", "J. J. R. Tolkien", "George Allen & Unwin (UK)", 1962, "EN", 304);
-
-library.push(book1);
-library.push(book2);
-library.push(book3);
-
-// show booklist
-for (let book in library) {
-    console.log(library[book]);
-    const booklist = document.querySelector("#booklist");
-
-    // Card Element
-    const card = document.createElement("div")
-    card.setAttribute("class", "card");
-
-    // Book Elements
-    const title = document.createElement("h2");
-    title.textContent = library[book].title;
-    title.setAttribute("class", "title");
-
-    const author = document.createElement("strong");
-    author.textContent = library[book].author;
-    author.setAttribute("class", "author");
-
-    const publisher = document.createElement("p");
-    publisher.textContent = library[book].publisher;
-    publisher.setAttribute("class", "publisher");
-
-    const releaseYear = document.createElement("p");
-    releaseYear.textContent = library[book].releaseYear;
-    releaseYear.setAttribute("class", "releaseYear");
-
-    const language = document.createElement("p");
-    language.textContent = library[book].language;
-    language.setAttribute("class", "language");
-
-    const pages = document.createElement("p");
-    pages.textContent = library[book].pages;
-    pages.setAttribute("class", "pages");
-
-    const read = document.createElement("p");
-    read.textContent = library[book].read ? "Yes" : "Not read yet";
-    read.setAttribute("class", "read");
-
-    // Append to card
-    card.appendChild(title);
-    card.appendChild(author);
-    card.appendChild(publisher);
-    card.appendChild(releaseYear);
-    card.appendChild(language);
-    card.appendChild(pages);
-    card.appendChild(read);
-
-    // append cards to booklist
-    booklist.appendChild(card);
+// Remove a book from the library
+const removeBookFromLibrary = (title) => {
+    const index = library.findIndex(book => book.title === title);
+    if (index !== -1) {
+        library.splice(index, 1);
+    }
 }
 
+// Example data
+addBookToLibrary("The Hobbit", "J. R. R. Tolkien", "George Allen & Unwin (UK)", 1937, "EN", 310);
+addBookToLibrary("Lord Of The Rings", "J. R. R. Tolkien", "George Allen & Unwin (UK)", 1954, "EN", 1216, true);
+addBookToLibrary("Lord Of The Rings", "J. R. R. Tolkien", "George Allen & Unwin (UK)", 1962, "EN", 304);
 
+// Show book list
+const displayBooks = () => {
+    const booklist = document.querySelector("#booklist");
+    booklist.textContent = ""; // Clear existing content
 
+    library.forEach(book => {
+        // Card Element
+        const card = document.createElement("div");
+        card.setAttribute("class", "card");
 
+        // Book Elements
+        const titleElement = document.createElement("h2");
+        titleElement.textContent = book.title;
+        titleElement.setAttribute("class", "title");
+
+        const authorElement = document.createElement("strong");
+        authorElement.textContent = book.author;
+        authorElement.setAttribute("class", "author");
+
+        const publisherElement = document.createElement("p");
+        publisherElement.textContent = book.publisher;
+        publisherElement.setAttribute("class", "publisher");
+
+        const releaseYearElement = document.createElement("p");
+        releaseYearElement.textContent = `Publication date: ${book.releaseYear}`;
+        releaseYearElement.setAttribute("class", "releaseYear");
+
+        const languageElement = document.createElement("p");
+        languageElement.textContent = `Language: ${book.language}`;
+        languageElement.setAttribute("class", "language");
+
+        const pagesElement = document.createElement("p");
+        pagesElement.textContent = `Pages: ${book.pages}`;
+        pagesElement.setAttribute("class", "pages");
+
+        const readElement = document.createElement("p");
+        readElement.textContent = book.read ? "Already read" : "Not read yet";
+        readElement.setAttribute("class", "read");
+
+        // Delete Button
+        const deleteButton = document.createElement("button");
+        deleteButton.textContent = "X";
+        deleteButton.setAttribute("class", "deleteButton");
+        deleteButton.addEventListener("click", () => {
+            removeBookFromLibrary(book.title);
+            displayBooks(); // Refresh the list
+        });
+
+        // Append to card
+        card.appendChild(deleteButton);
+        card.appendChild(titleElement);
+        card.appendChild(authorElement);
+        card.appendChild(releaseYearElement);
+        card.appendChild(languageElement);
+        card.appendChild(pagesElement);
+        card.appendChild(readElement);
+        card.appendChild(publisherElement);
+
+        // Append card to booklist
+        booklist.appendChild(card);
+    });
+};
+
+displayBooks();
