@@ -29,11 +29,6 @@ const removeBookFromLibrary = (title) => {
   }
 };
 
-// Example data
-addBookToLibrary('The Hobbit', 'J. R. R. Tolkien', 'George Allen & Unwin (UK)', 1937, 'EN', 310);
-addBookToLibrary('Lord Of The Rings', 'J. R. R. Tolkien', 'George Allen & Unwin (UK)', 1954, 'EN', 1216, true);
-addBookToLibrary('Lord Of The Rings', 'J. R. R. Tolkien', 'George Allen & Unwin (UK)', 1962, 'EN', 304);
-
 // Show book list
 const displayBooks = () => {
   const booklist = document.querySelector('#booklist');
