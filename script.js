@@ -24,6 +24,7 @@ const removeBookFromLibrary = (title) => {
     }
 }
 
+
 // Example data
 addBookToLibrary("The Hobbit", "J. R. R. Tolkien", "George Allen & Unwin (UK)", 1937, "EN", 310);
 addBookToLibrary("Lord Of The Rings", "J. R. R. Tolkien", "George Allen & Unwin (UK)", 1954, "EN", 1216, true);
@@ -91,5 +92,25 @@ const displayBooks = () => {
         booklist.appendChild(card);
     });
 };
+
+// Get modal element
+const modal = document.querySelector("#addBookModal");
+// Get open modal button
+const addButton = document.querySelector("#addBook");
+// Get closeModalButton
+const closeModalButton = document.querySelector(".close");
+// Get saveBookButton
+const saveBookButton = document.querySelector("#saveBook");
+
+// Open Modal when add bookButton is clicked
+addButton.addEventListener("click", () => {
+    modal.style.display = "block";
+})
+// Clode modal when closeModalButton is clicked
+closeModalButton.addEventListener("click", () => {
+    modal.style.display = "none";
+})
+
+// Add book when save button is clicked
 
 displayBooks();
