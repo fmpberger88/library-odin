@@ -112,5 +112,17 @@ closeModalButton.addEventListener("click", () => {
 })
 
 // Add book when save button is clicked
+saveBookButton.addEventListener("click", () => {
+    const title = document.querySelector("#bookTitle").value;
+    const author = document.querySelector("#bookAuthor").value;
+    const publisher = document.querySelector("#bookPublisher").value;
+    const releaseYear = document.querySelector("#bookReleaseYear").value;
+    const language = document.querySelector("#bookLanguage").value;
+    const pages = document.querySelector("#bookPages").value;
+    const read = document.querySelector("#bookRead").value;
+
+    addBookToLibrary(title, author, publisher, releaseYear, language, pages, read);
+    displayBooks();
+});
 
 displayBooks();
