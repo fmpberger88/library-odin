@@ -103,11 +103,11 @@ const saveBookButton = document.querySelector('#saveBook');
 
 // Open Modal when add bookButton is clicked
 addButton.addEventListener('click', () => {
-  modal.style.display = 'block';
+  modal.classList.add('modal-visible')
 });
 // Clode modal when closeModalButton is clicked
 closeModalButton.addEventListener('click', () => {
-  modal.style.display = 'none';
+  modal.classList.remove('modal-visible')
 });
 
 // Add book when save button is clicked

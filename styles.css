@@ -28,10 +28,11 @@ h1 {
     border: 1px black solid;
     border-radius: 10px;
     margin-bottom: 50px;
+    transition: background-color ease-in 300ms;
 }
 
 #addBook:hover {
-    transform: scale(1.1);
+    background-color: darkorange;
 }
 
 #addBook:active {
@@ -74,6 +75,7 @@ h1 {
     justify-content: center;
     align-items: center;
     cursor: pointer; /* Optional: Changes the cursor on hover */
+    transition: background-color ease-in 300ms;
 }
 
 
@@ -127,11 +129,22 @@ footer {
 }
 
 /* Modal */
+/* Basiszustand des Modals - unsichtbar, aber im Layout */
 .modal {
-    display: none;
-    position: absolute;
-    top: 200px;
+    display: block; /* Oder flex, je nach Bedarf */
+    position: fixed; /* Empfohlen über absolute für bessere Zentrierung und Responsivität */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Zentriert das Modal */
+    opacity: 0;
+    visibility: hidden; /* Verhindert Interaktion, wenn das Modal unsichtbar ist */
+    transition: opacity 300ms ease-in-out, visibility 300ms ease-in-out;
+}
 
+/* Klasse, um das Modal sichtbar zu machen */
+.modal-visible {
+    opacity: 1;
+    visibility: visible;
 }
 
 .modal-content {
