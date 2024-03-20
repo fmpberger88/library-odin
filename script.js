@@ -1,4 +1,7 @@
-const library = [];
+import { loadLibraryFromLocalStorage } from './localStorage/loadLibraryFromLocalStorage.js';
+import { saveLibraryToLocalStorage } from './localStorage/saveLibraryToLocalStorage.js';
+
+const library = loadLibraryFromLocalStorage() || [];
 
 function Book(title, author, publisher, releaseYear, language, pages, read = false) {
   this.title = title;
@@ -14,6 +17,7 @@ function Book(title, author, publisher, releaseYear, language, pages, read = fal
 const addBookToLibrary = (title, author, publisher, releaseYear, language, pages, read = false) => {
   const book = new Book(title, author, publisher, releaseYear, language, pages, read);
   library.push(book);
+  saveLibraryToLocalStorage(library);
 };
 
 // Remove a book from the library
@@ -21,6 +25,7 @@ const removeBookFromLibrary = (title) => {
   const index = library.findIndex((book) => book.title === title);
   if (index !== -1) {
     library.splice(index, 1);
+    saveLibraryToLocalStorage(library);
   }
 };
 
@@ -118,7 +123,7 @@ saveBookButton.addEventListener('click', () => {
   const releaseYear = document.querySelector('#bookReleaseYear').value;
   const language = document.querySelector('#bookLanguage').value;
   const pages = document.querySelector('#bookPages').value;
-  const read = document.querySelector('#bookRead').value;
+  const read = document.querySelector('#bookRead').checked;
 
   addBookToLibrary(title, author, publisher, releaseYear, language, pages, read);
   displayBooks();

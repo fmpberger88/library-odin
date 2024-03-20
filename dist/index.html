@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Library</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script type="module" crossorigin src="/assets/index-DBsSTWGM.js"></script>
+  <link rel="stylesheet" crossorigin href="/assets/index-D2PVuAwT.css">
+</head>
+<body>
+    <main>
+        <h1>My library</h1>
+        <button id="addBook">Add a new book</button>
+        <!-- Add Book Modal -->
+        <div id="addBookModal" class="modal">
+            <div class="modal-content">
+                <span class="close">X</span>
+                <h2>Add a new Book</h2>
+                <input type="text" id="bookTitle" placeholder="Book Title">
+                <input type="text" id="bookAuthor" placeholder="Author">
+                <input type="text" id="bookPublisher" placeholder="Publisher">
+                <input type="text" id="bookReleaseYear" placeholder="Release Year">
+                <input type="text" id="bookLanguage" placeholder="Language">
+                <input type="number" id="bookPages" placeholder="Pages">
+                <label for="bookRead">
+                    <input type="checkbox" id="bookRead">
+                    Read?
+                </label>
+                <button id="saveBook">Add Book</button>
+            </div>
+        </div>
+
+        <!-- booklist -->
+        <div id="booklist">
+
+        </div>
+    </main>
+    <footer>
+        <p>2024 Copyright <a href="https://www.fmpberger.com" target="_blank">fmpberger</a></p>
+    </footer>
+</body>
+</html>

@@ -1,4 +1,4 @@
-const saveLibraryToLocalStorage = () => {
+const saveLibraryToLocalStorage = (library) => {
   localStorage.setItem('library', JSON.stringify(library));
 };
 
