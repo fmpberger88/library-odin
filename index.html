@@ -12,22 +12,28 @@
         <h1>My library</h1>
         <button id="addBook">Add a new book</button>
         <!-- Add Book Modal -->
-        <div id="addBookModal" class="modal">
-            <div class="modal-content">
-                <span class="close">X</span>
-                <h2>Add a new Book</h2>
+        <div id="addBookModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="dialog1Title" aria-describedby="dialog1Desc">
+            <form class="modal-content">
+                <button class="close">X</button>
+                <h2 id="dialog1Title">Add a new Book</h2>
+                <p id="dialog1Desc">Please fill in the details of the book you want to add.</p>
+                <label for="bookTitle">Book Title*</label>
                 <input type="text" id="bookTitle" placeholder="Book Title" required>
+                <label for="bookAuthor">Author*</label>
                 <input type="text" id="bookAuthor" placeholder="Author" required>
+                <label for="bookPublisher">Publisher*</label>
                 <input type="text" id="bookPublisher" placeholder="Publisher" required>
-                <input type="text" id="bookReleaseYear" placeholder="Release Year" required>
+                <label for="bookReleaseYear">Release Year*</label>
+                <input type="number" id="bookReleaseYear" placeholder="Release Year" required>
+                <label for="bookLanguage">Language</label>
                 <input type="text" id="bookLanguage" placeholder="Language">
+                <label for="bookPages">Pages</label>
                 <input type="number" id="bookPages" placeholder="Pages">
-                <label for="bookRead">
-                    <input type="checkbox" id="bookRead">
-                    Read?
-                </label>
+                <label for="bookRead">Read?</label>
+                <input type="checkbox" id="bookRead">
                 <button id="saveBook">Add Book</button>
-            </div>
+                <span>* fields are required</span>
+            </form>
         </div>
 
         <!-- booklist -->
