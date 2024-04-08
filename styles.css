@@ -132,6 +132,8 @@ footer {
     align-items: center;
     justify-content: center;
     margin-top: 600px;
+    margin-bottom: 50px;
+    font-size: 1.25rem;
 }
 
 /* Modal */
@@ -191,6 +193,10 @@ input {
 
 input:invalid {
     box-shadow: 0 0 5px 1px red;
+}
+
+input:valid {
+    box-shadow: 0 0 5px 1px green;
 }
 
 #saveBook {
