@@ -4,30 +4,36 @@
     <meta charset="UTF-8">
     <title>Library</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <script type="module" crossorigin src="/assets/index-BSGVdykU.js"></script>
-  <link rel="stylesheet" crossorigin href="/assets/index-BrVqLbCn.css">
+  <script type="module" crossorigin src="/assets/index-99rpNX-1.js"></script>
+  <link rel="stylesheet" crossorigin href="/assets/index-D4EWsJO8.css">
 </head>
 <body>
     <main>
         <h1>My library</h1>
         <button id="addBook">Add a new book</button>
         <!-- Add Book Modal -->
-        <div id="addBookModal" class="modal">
-            <div class="modal-content">
-                <span class="close">X</span>
-                <h2>Add a new Book</h2>
-                <input type="text" id="bookTitle" placeholder="Book Title">
-                <input type="text" id="bookAuthor" placeholder="Author">
-                <input type="text" id="bookPublisher" placeholder="Publisher">
-                <input type="text" id="bookReleaseYear" placeholder="Release Year">
+        <div id="addBookModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="dialog1Title" aria-describedby="dialog1Desc">
+            <form class="modal-content">
+                <button class="close">X</button>
+                <h2 id="dialog1Title">Add a new Book</h2>
+                <p id="dialog1Desc">Please fill in the details of the book you want to add.</p>
+                <label for="bookTitle">Book Title*</label>
+                <input type="text" id="bookTitle" placeholder="Book Title" required>
+                <label for="bookAuthor">Author*</label>
+                <input type="text" id="bookAuthor" placeholder="Author" required>
+                <label for="bookPublisher">Publisher*</label>
+                <input type="text" id="bookPublisher" placeholder="Publisher" required>
+                <label for="bookReleaseYear">Release Year*</label>
+                <input type="number" id="bookReleaseYear" placeholder="Release Year" required>
+                <label for="bookLanguage">Language</label>
                 <input type="text" id="bookLanguage" placeholder="Language">
+                <label for="bookPages">Pages</label>
                 <input type="number" id="bookPages" placeholder="Pages">
-                <label for="bookRead">
-                    <input type="checkbox" id="bookRead">
-                    Read?
-                </label>
+                <label for="bookRead">Read?</label>
+                <input type="checkbox" id="bookRead">
                 <button id="saveBook">Add Book</button>
-            </div>
+                <span>* fields are required</span>
+            </form>
         </div>
 
         <!-- booklist -->
@@ -36,7 +42,7 @@
         </div>
     </main>
     <footer>
-        <p>2024 Copyright <a href="https://www.fmpberger.com" target="_blank">fmpberger</a></p>
+        <p>Copyright 2024 <a href="https://www.fmpberger.com" target="_blank">fmpberger</a></p>
     </footer>
 </body>
 </html>
